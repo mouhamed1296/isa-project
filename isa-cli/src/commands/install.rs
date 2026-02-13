@@ -60,7 +60,7 @@ fn generate_nestjs_guide() -> String {
 
     s.push_str(&format!("  {} Import in your service:\n\n", "Step 2:".cyan().bold()));
     s.push_str(&format!("    {}\n", "// src/isa/isa.service.ts".dimmed()));
-    s.push_str(&format!("    {}\n\n", "const { WasmAxisAccumulator } = require('isa-project/isa-ffi/pkg/isa_ffi.js');".white()));
+    s.push_str(&format!("    {}\n\n", "const { WasmAxisAccumulator } = require('isa-project');".white()));
 
     s.push_str(&format!("  {} Create the ISA module:\n\n", "Step 3:".cyan().bold()));
     s.push_str(&format!("    {}\n", "nest generate module isa".white()));
@@ -152,7 +152,7 @@ fn generate_wasm_guide() -> String {
     s.push_str(&format!("    {}\n\n", "npm install github:mouhamed1296/isa-project#main --save".white()));
 
     s.push_str(&format!("  {} Import the WASM module:\n\n", "Step 2:".cyan().bold()));
-    s.push_str(&format!("    {}\n", "import init, { WasmAxisAccumulator } from 'isa-project/isa-ffi/pkg/isa_ffi.js';".white()));
+    s.push_str(&format!("    {}\n", "import init, { WasmAxisAccumulator } from 'isa-project';".white()));
     s.push_str(&format!("    {}\n\n", "await init(); // Initialize WASM".white()));
 
     s.push_str(&format!("  {} Create accumulators:\n\n", "Step 3:".cyan().bold()));

@@ -161,7 +161,7 @@ pub fn run(path: Option<String>, defaults: bool) -> Result<()> {
             println!("    {} Install the WASM package:", "1.".dimmed());
             println!("       {}", "npm install github:mouhamed1296/isa-project#main --save".cyan());
             println!("    {} Import in your NestJS service:", "2.".dimmed());
-            println!("       {}", "import { WasmAxisAccumulator } from 'isa-ffi/isa-ffi/pkg/isa_ffi.js';".cyan());
+            println!("       {}", "const { WasmAxisAccumulator } = require('isa-project');".cyan());
             println!("    {} Run `isa install --target nestjs` for full setup guide", "3.".dimmed());
         }
         1 => {

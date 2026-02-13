@@ -1,0 +1,25 @@
+{
+  "name": "isa-project",
+  "version": "0.1.0",
+  "description": "MA-ISA — Multi-Axis Integrity State Accumulation (WASM bindings)",
+  "main": "isa-ffi/pkg/isa_ffi.js",
+  "types": "isa-ffi/pkg/isa_ffi.d.ts",
+  "files": [
+    "isa-ffi/pkg/isa_ffi_bg.wasm",
+    "isa-ffi/pkg/isa_ffi.js",
+    "isa-ffi/pkg/isa_ffi.d.ts",
+    "isa-ffi/pkg/isa_ffi_bg.wasm.d.ts"
+  ],
+  "license": "MIT OR Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mouhamed1296/isa-project"
+  },
+  "keywords": [
+    "cryptography",
+    "integrity",
+    "wasm",
+    "offline-first",
+    "state-accumulator"
+  ]
+}
