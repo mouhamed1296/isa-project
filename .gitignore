@@ -29,4 +29,5 @@ isa-ffi/node_modules/
 *.bin
 *.dat
 
-# docs/ is now tracked for implementation guides and prompts
+# Internal documentation (not for GitHub)
+/docs/
