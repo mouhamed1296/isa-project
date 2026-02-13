@@ -1,0 +1,36 @@
+/* tslint:disable */
+/* eslint-disable */
+export const memory: WebAssembly.Memory;
+export const isa_runtime_new: (a: number, b: number) => number;
+export const isa_runtime_load_or_create: (a: number, b: number) => number;
+export const isa_runtime_free: (a: number) => number;
+export const isa_record_sale: (a: number, b: number, c: number, d: number) => number;
+export const isa_record_event: (a: number, b: number, c: number, d: number, e: number) => number;
+export const isa_save: (a: number) => number;
+export const isa_get_state_vector: (a: number, b: number) => number;
+export const isa_axis_new: (a: number) => number;
+export const isa_axis_free: (a: number) => void;
+export const isa_axis_accumulate: (a: number, b: number, c: number, d: number, e: number, f: bigint) => number;
+export const isa_axis_get_state: (a: number, b: number) => number;
+export const isa_state_new: (a: number) => number;
+export const isa_state_free: (a: number) => void;
+export const isa_get_version: (a: number, b: number, c: number) => number;
+export const __wbg_wasmaxisaccumulator_free: (a: number, b: number) => void;
+export const wasmaxisaccumulator_new: (a: number, b: number, c: number) => void;
+export const wasmaxisaccumulator_accumulate: (a: number, b: number, c: number, d: number, e: number, f: bigint) => void;
+export const wasmaxisaccumulator_state: (a: number, b: number) => void;
+export const wasmaxisaccumulator_counter: (a: number) => bigint;
+export const __wbg_wasmmultiaxisstate_free: (a: number, b: number) => void;
+export const wasmmultiaxisstate_new: (a: number, b: number, c: number) => void;
+export const wasmmultiaxisstate_getDimensionState: (a: number, b: number, c: number) => void;
+export const wasmmultiaxisstate_getDimensionCount: (a: number) => number;
+export const wasmmultiaxisstate_getFinanceState: (a: number, b: number) => void;
+export const wasmmultiaxisstate_getTimeState: (a: number, b: number) => void;
+export const wasmmultiaxisstate_getHardwareState: (a: number, b: number) => void;
+export const wasmmultiaxisstate_toBytes: (a: number, b: number) => void;
+export const wasmmultiaxisstate_fromBytes: (a: number, b: number, c: number) => void;
+export const getVersion: (a: number) => void;
+export const __wbindgen_export: (a: number) => void;
+export const __wbindgen_add_to_stack_pointer: (a: number) => number;
+export const __wbindgen_export2: (a: number, b: number, c: number) => void;
+export const __wbindgen_export3: (a: number, b: number) => number;

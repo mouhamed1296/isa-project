@@ -1,0 +1,25 @@
+{
+  "name": "isa-ffi",
+  "collaborators": [
+    "MA-ISA Contributors"
+  ],
+  "description": "C ABI and WASM bindings for MA-ISA",
+  "version": "0.1.0",
+  "license": "MIT OR Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mouhamed1296/isa-project"
+  },
+  "files": [
+    "isa_ffi_bg.wasm",
+    "isa_ffi.js",
+    "isa_ffi.d.ts"
+  ],
+  "main": "isa_ffi.js",
+  "types": "isa_ffi.d.ts",
+  "keywords": [
+    "ffi",
+    "wasm",
+    "bindings"
+  ]
+}

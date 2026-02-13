@@ -22,8 +22,7 @@ Thumbs.db
 *.a
 *.lib
 
-# WASM
-isa-ffi/pkg/
+# WASM (pkg/ is tracked so consumers can use it as a git dependency)
 isa-ffi/node_modules/
 
 # Test artifacts

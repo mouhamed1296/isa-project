@@ -54,30 +54,30 @@ Implement **Multi-Axis Integrity State Accumulation (MA-ISA)** in your NestJS ba
 
 ### 1. Install MA-ISA Dependencies
 
-**Option A: Build WASM locally and copy**
+**For NestJS (WASM/Node.js)** — install directly from GitHub:
+
 ```bash
-# Clone the ISA project
-git clone https://github.com/mouhamed1296/isa-project.git
-
-# Build WASM for Node.js
-cd isa-project/isa-ffi
-wasm-pack build --target nodejs --out-dir pkg
-
-# Copy the pkg/ folder into your NestJS project
-cp -r pkg /path/to/your-nestjs-project/src/isa/pkg
+npm install github:mouhamed1296/isa-project#main --save
 ```
 
-Then in your NestJS project:
+Or in `package.json`:
+
 ```json
-// package.json
 {
   "dependencies": {
-    "isa-ffi": "file:./src/isa/pkg"
+    "isa-ffi": "github:mouhamed1296/isa-project#main"
   }
 }
 ```
 
-**Option B: Tauri (Rust side) — use as git Cargo dependency**
+Then import in your NestJS code:
+
+```typescript
+import { WasmAxisAccumulator } from 'isa-ffi/isa-ffi/pkg/isa_ffi.js';
+```
+
+**For Tauri (Rust side)** — use as git Cargo dependency:
+
 ```toml
 # src-tauri/Cargo.toml
 [dependencies]
