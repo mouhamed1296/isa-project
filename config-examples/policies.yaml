@@ -1,0 +1,91 @@
+# MA-ISA Configuration File (YAML)
+# This file can be used from any language (Python, JavaScript, Go, etc.)
+# No Rust code changes needed - just point your application to this file
+
+global:
+  learning_rate: 0.1
+  min_observations: 10
+  # Optional: master seed as hex string
+  # master_seed: "0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef"
+
+# Define your dimensions
+dimensions:
+  - index: 0
+    name: "Financial Transactions"
+    threshold: 1000
+    strategy: "ImmediateHeal"
+    critical: true
+    weight: 1.0
+    enabled: true
+    
+  - index: 1
+    name: "Temporal Sequence"
+    threshold: 5000
+    strategy: "MonitorOnly"
+    critical: false
+    weight: 0.8
+    enabled: true
+    
+  - index: 2
+    name: "Hardware Events"
+    threshold: 2000
+    strategy: "Quarantine"
+    critical: false
+    weight: 0.9
+    enabled: true
+    
+  - index: 3
+    name: "Network Communication"
+    threshold: 3000
+    strategy: "ImmediateHeal"
+    critical: true
+    weight: 0.95
+    enabled: true
+
+# Define cross-dimension constraints
+constraints:
+  - name: "Financial-Temporal Ratio"
+    dimensions: [0, 1]
+    type: "MaxRatio"
+    ratio: 2
+    severity: 8
+    
+  - name: "Total System Divergence"
+    dimensions: [0, 1, 2, 3]
+    type: "SumBelow"
+    threshold: 10000
+    severity: 10
+    
+  - name: "Critical Systems Check"
+    dimensions: [0, 3]
+    type: "SumBelow"
+    threshold: 5000
+    severity: 9
+
+# Optional: Define dimension hierarchy
+hierarchy:
+  nodes:
+    - dimension_index: 0
+      name: "System Root"
+      parent: null
+      weight: 1.0
+      
+    - dimension_index: 1
+      name: "Financial Subsystem"
+      parent: 0
+      weight: 0.6
+      
+    - dimension_index: 2
+      name: "Operational Subsystem"
+      parent: 0
+      weight: 0.4
+      
+    - dimension_index: 3
+      name: "Transaction Processing"
+      parent: 1
+      weight: 0.7
+      
+    - dimension_index: 4
+      name: "Balance Management"
+      parent: 1
+      weight: 0.3

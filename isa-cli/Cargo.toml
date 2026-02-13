@@ -1,0 +1,23 @@
+[package]
+name = "isa-cli"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+repository.workspace = true
+description = "Command-line tool for MA-ISA state management"
+keywords = ["cli", "cryptography", "state-accumulator", "offline-first"]
+categories = ["command-line-utilities", "cryptography"]
+
+[[bin]]
+name = "isa"
+path = "src/main.rs"
+
+[dependencies]
+isa-core = { path = "../isa-core", features = ["serde"] }
+isa-runtime = { path = "../isa-runtime" }
+clap = { version = "4.5", features = ["derive", "cargo"] }
+colored = "2.1"
+serde_json = "1.0"
+anyhow = "1.0"
+hex = "0.4"

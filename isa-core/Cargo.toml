@@ -1,0 +1,46 @@
+[package]
+name = "isa-core"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+repository.workspace = true
+description = "Pure cryptographic implementation of Multi-Axis Integral State Accumulator"
+keywords = ["cryptography", "integrity", "accumulator", "deterministic"]
+categories = ["cryptography", "no-std"]
+
+[dependencies]
+sha2 = { workspace = true }
+blake3 = { workspace = true }
+subtle = { workspace = true }
+zeroize = { workspace = true }
+serde = { workspace = true, optional = true }
+bincode = { workspace = true, optional = true }
+
+[features]
+default = ["std"]
+std = ["sha2/std", "blake3/std", "serde?/std"]
+serde = ["dep:serde", "dep:bincode"]
+simd = []
+
+[lib]
+crate-type = ["rlib"]
+
+[dev-dependencies]
+hex = "0.4"
+criterion = { version = "0.5", features = ["html_reports"] }
+
+[[test]]
+name = "vectors"
+path = "tests/vectors.rs"
+
+[[example]]
+name = "generate_test_vectors"
+path = "examples/generate_test_vectors.rs"
+
+[[bench]]
+name = "benchmarks"
+harness = false
+
+[lints.rust]
+unexpected_cfgs = { level = "warn", check-cfg = ['cfg(kani)'] }

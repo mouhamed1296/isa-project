@@ -1,0 +1,27 @@
+[package]
+name = "isa-merkle"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+repository.workspace = true
+description = "Merkle tree batch verification for Multi-Axis Integral State Accumulator"
+keywords = ["cryptography", "merkle-tree", "batch-verification", "accumulator"]
+categories = ["cryptography", "data-structures"]
+
+[dependencies]
+isa-core = { path = "../isa-core" }
+blake3 = { workspace = true }
+serde = { workspace = true, optional = true }
+
+[features]
+default = ["std"]
+std = ["blake3/std", "serde?/std"]
+serde = ["dep:serde", "isa-core/serde"]
+
+[dev-dependencies]
+criterion = { version = "0.5", features = ["html_reports"] }
+
+[[bench]]
+name = "merkle_benchmarks"
+harness = false

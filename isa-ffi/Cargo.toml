@@ -1,0 +1,32 @@
+[package]
+name = "isa-ffi"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+repository.workspace = true
+description = "C ABI and WASM bindings for MA-ISA"
+keywords = ["ffi", "wasm", "bindings"]
+categories = ["cryptography", "api-bindings"]
+
+[dependencies]
+isa-core = { path = "../isa-core", features = ["serde"] }
+isa-runtime = { path = "../isa-runtime" }
+serde = { workspace = true, features = ["std"] }
+bincode = { workspace = true }
+lazy_static = "1.4"
+
+[target.'cfg(target_arch = "wasm32")'.dependencies]
+wasm-bindgen = "0.2"
+
+[lib]
+crate-type = ["cdylib", "staticlib", "rlib"]
+
+[profile.release]
+opt-level = "z"
+lto = true
+codegen-units = 1
+panic = "abort"
+
+[package.metadata.wasm-pack.profile.release]
+wasm-opt = false

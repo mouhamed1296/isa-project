@@ -1,0 +1,73 @@
+# MA-ISA Configuration for IoT Device Integrity Monitor
+# This configuration demonstrates domain-agnostic integrity monitoring
+
+dimensions:
+  - id: 0
+    name: "Sensor Integrity"
+    description: "Temperature, humidity, and motion sensor readings"
+    threshold: 1000
+    weight: 1.5
+    strategy: MonitorOnly
+    safety_relevant: false
+
+  - id: 1
+    name: "Network Integrity"
+    description: "Network connectivity and communication patterns"
+    threshold: 800
+    weight: 1.0
+    strategy: ImmediateHeal
+    safety_relevant: true
+
+  - id: 2
+    name: "Firmware Integrity"
+    description: "Firmware version and update history"
+    threshold: 500
+    weight: 2.0
+    strategy: Quarantine
+    safety_relevant: true
+
+  - id: 3
+    name: "Power Integrity"
+    description: "Battery level and power consumption"
+    threshold: 1200
+    weight: 0.8
+    strategy: MonitorOnly
+    safety_relevant: false
+
+constraints:
+  - type: MaxRatio
+    dimensions: [0, 1]
+    ratio: 2.0
+    description: "Sensor divergence should not exceed 2x network divergence"
+
+  - type: SumBelow
+    dimensions: [0, 1, 2]
+    max_sum: 3000
+    description: "Total divergence across critical dimensions must stay below 3000"
+
+# Recovery Strategies:
+# - MonitorOnly: Log divergence but take no action
+# - ImmediateHeal: Attempt state reconciliation immediately
+# - Quarantine: Isolate dimension and alert operator
+# - GracefulDegrade: Reduce functionality but continue operation
+
+# Usage Examples:
+#
+# JavaScript (Browser/Node.js):
+#   const yaml = require('js-yaml');
+#   const config = yaml.load(fs.readFileSync('config.yaml', 'utf8'));
+#
+# Python:
+#   import yaml
+#   with open('config.yaml') as f:
+#       config = yaml.safe_load(f)
+#
+# Go:
+#   import "gopkg.in/yaml.v3"
+#   config := Config{}
+#   yaml.Unmarshal(data, &config)
+#
+# Environment Variable Override:
+#   ISA_DIM0_THRESHOLD=1000
+#   ISA_DIM1_STRATEGY=ImmediateHeal
+#   ISA_DIM2_WEIGHT=2.5

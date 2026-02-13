@@ -1,0 +1,33 @@
+# Rust
+/target/
+**/*.rs.bk
+*.pdb
+# Cargo.lock is committed for reproducible builds when used as git dependency
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Build artifacts
+*.so
+*.dylib
+*.dll
+*.a
+*.lib
+
+# WASM
+isa-ffi/pkg/
+isa-ffi/node_modules/
+
+# Test artifacts
+*.bin
+*.dat
+
+# docs/ is now tracked for implementation guides and prompts

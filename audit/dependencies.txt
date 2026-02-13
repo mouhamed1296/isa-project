@@ -1,0 +1,12 @@
+warning: profiles for the non root package will be ignored, specify profiles at the workspace root:
+package:   /Users/mamadousarr/me/isa-project/isa-ffi/Cargo.toml
+workspace: /Users/mamadousarr/me/isa-project/Cargo.toml
+isa-core v0.1.0 (/Users/mamadousarr/me/isa-project/isa-core)
+├── blake3 v1.8.3
+│   [build-dependencies]
+├── sha2 v0.10.9
+├── subtle v2.6.1
+└── zeroize v1.8.2
+[dev-dependencies]
+├── criterion v0.5.1
+└── hex v0.4.3
