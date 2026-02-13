@@ -148,25 +148,6 @@ enum DeviceAction {
         seed: Option<String>,
     },
 
-    /// Record a sale transaction
-    RecordSale {
-        /// State file path
-        #[arg(short, long, default_value = "device.state")]
-        file: String,
-
-        /// Sale amount in cents
-        #[arg(short, long)]
-        amount: u64,
-
-        /// Currency code
-        #[arg(short, long, default_value = "USD")]
-        currency: String,
-
-        /// Additional metadata
-        #[arg(short, long)]
-        metadata: Option<String>,
-    },
-
     /// Record a custom event
     Record {
         /// State file path
@@ -301,12 +282,6 @@ fn main() {
                 output,
                 seed,
             } => commands::init::run(device_id, output, seed),
-            DeviceAction::RecordSale {
-                file,
-                amount,
-                currency,
-                metadata,
-            } => commands::record_sale::run(file, amount, currency, metadata),
             DeviceAction::Record {
                 file,
                 event,

@@ -2,7 +2,6 @@ pub mod init;
 pub mod init_project;
 pub mod install;
 pub mod config;
-pub mod record_sale;
 pub mod record;
 pub mod verify;
 pub mod show;
